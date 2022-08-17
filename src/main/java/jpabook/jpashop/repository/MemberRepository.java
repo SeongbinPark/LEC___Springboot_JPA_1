@@ -17,7 +17,7 @@ public class MemberRepository {
     public Long save(Member member) {
         em.persist(member);//여기서 JPA가 얘를 저장함.
         //persist하여 영속성컨텍스트에 갔을 때도 PK를 key로 사용하여 올림. ( 아직 DB는 가지도 않음 )
-        return member.getId();
+        return member.getId();//그래서 이때 id가 있음을 보장.
     }
 
     public Member find(Long id) {
@@ -44,6 +44,4 @@ public class MemberRepository {
                 .setParameter("name", name)
                 .getResultList();
     }
-
-
 }

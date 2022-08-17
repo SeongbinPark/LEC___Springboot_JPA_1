@@ -1,13 +1,10 @@
 package jpabook.jpashop.service;
 
-import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -18,7 +15,7 @@ public class ItemService {
 
     private final ItemRepository itemRepository;
 
-    @Transactional//readOnly false로 하기 위해 ( 어노테이션 가까운게 우선권 ( 오버라이드))
+    @Transactional//readOnly false로 하기 위해 ( 어노테이션 가까운게 우선권 (오버라이드))
     public void saveItem(Item item) {
         itemRepository.save(item);
     }

@@ -5,7 +5,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,6 +17,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
+
 
     @Id
     @GeneratedValue
@@ -42,7 +42,8 @@ public class Order {
 
 
     /**
-     * 연관관계 편의메서드 ( 양쪽 다 값 세팅한다 생각하자 )
+     * 연관관계 편의메서드 (양방향은 무조건 양쪽 다 관계설정해줘야함.)
+     * 쓰는 이유 : 양방향은 둘 다 관계설정 해주어야하는데 실수로 빼먹을 수 있다!!!
      */
     public void setMember(Member member) {
 
